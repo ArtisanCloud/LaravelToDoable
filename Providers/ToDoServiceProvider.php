@@ -33,6 +33,10 @@ class ToDoServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        // config framework router
+        $this->configRouter();
+
         if ($this->app->runningInConsole()) {
               // publish config file
 //              $this->publishes([
@@ -47,11 +51,17 @@ class ToDoServiceProvider extends ServiceProvider
               // register artisan command
               if (! class_exists('CreateToDoTable')) {
                 $this->publishes([
-                  __DIR__ . '/../../database/migrations/create_todos_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_todos_table.php'),
+                  __DIR__ . '/../database/migrations/create_todos_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_todos_table.php'),
                   // you can add any number of migrations here
                 ], ['ArtisanCloud', 'SaaSFramework', 'ToDo-Migration']);
               }
             }
+
+    }
+
+    public function configRouter()
+    {
+        $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
 
     }
 }

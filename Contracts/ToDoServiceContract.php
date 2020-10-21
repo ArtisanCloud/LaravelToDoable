@@ -1,10 +1,10 @@
 <?php
 
-namespace ArtisanCloud\LaravelToDoable\Contracts;
+namespace ArtisanCloud\ToDoable\Contracts;
 
 /**
  * Interface ToDoServiceContract
- * @package ArtisanCloud\LaravelToDoable\Contracts
+ * @package ArtisanCloud\ToDoable\Contracts
  */
 interface ToDoServiceContract
 {

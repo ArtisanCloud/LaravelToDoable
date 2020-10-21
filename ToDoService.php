@@ -1,12 +1,12 @@
 <?php
 
-namespace ArtisanCloud\LaravelToDoable;
+namespace ArtisanCloud\ToDoable;
 
-use ArtisanCloud\LaravelToDoable\Contracts\ToDoServiceContract;
+use ArtisanCloud\ToDoable\Contracts\ToDoServiceContract;
 
 /**
  * Class ToDoService
- * @package ArtisanCloud\LaravelToDoable
+ * @package ArtisanCloud\ToDoable
  */
 class ToDoService implements ToDoServiceContract
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace ArtisanCloud\LaravelToDoable\Facades;
+namespace ArtisanCloud\ToDoable\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * Class ToDoService
- * @package ArtisanCloud\LaravelToDoable
+ * @package ArtisanCloud\ToDoable
  */
 class ToDoService extends Facade
 {

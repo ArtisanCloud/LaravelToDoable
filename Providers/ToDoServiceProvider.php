@@ -1,10 +1,10 @@
 <?php
 
-namespace ArtisanCloud\LaravelToDoable\Providers;
+namespace ArtisanCloud\ToDoable\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use ArtisanCloud\LaravelToDoable\Contracts\ToDoServiceContract;
-use ArtisanCloud\LaravelToDoable\ToDoService;
+use ArtisanCloud\ToDoable\Contracts\ToDoServiceContract;
+use ArtisanCloud\ToDoable\ToDoService;
 
 /**
  * Class ToDoServiceProvider

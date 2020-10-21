@@ -28,7 +28,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ArtisanCloud\\ToDoable\\Providers\\ToDoableServiceProvider"
+                "ArtisanCloud\\ToDoable\\Providers\\ToDoServiceProvider"
             ]
         }
     }

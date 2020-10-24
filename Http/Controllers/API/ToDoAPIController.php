@@ -24,16 +24,16 @@ use Illuminate\Http\Request;
 
 class ToDoAPIController extends APIController
 {
-    private $commentService;
+    private $todoService;
 
-    function __construct(Request $request, ToDoService $commentService)
+    function __construct(Request $request, ToDoService $todoService)
     {
 
         // init the default value
         // parent will construction automatically
         parent::__construct($request);
 
-        $this->commentService = $commentService;
+        $this->todoService = $todoService;
 
 
     }
@@ -42,17 +42,17 @@ class ToDoAPIController extends APIController
     public function apiCreate(RequestToDoCreate $request)
     {
 
-        $comment = \DB::connection('pgsql')->transaction(function () use ($request) {
+        $todo = \DB::connection('pgsql')->transaction(function () use ($request) {
 
             try {
                 $arrayData = $request->all();
-                dd($arrayData);
+//                dd($arrayData);
 
                 // check if artisan has registered artisan
-                $comment = $this->commentService->createBy($arrayData);
-//                dd($comment);
-                if (is_null($comment)) {
-                    throw new \Exception('', API_ERR_CODE_FAIL_TO_CREATE_PORTFOLIO);
+                $todo = $this->todoService->createBy($arrayData);
+//                dd($todo);
+                if (!is_null($todo)) {
+                    throw new \Exception('', API_ERR_CODE_FAIL_TO_CREATE_TO_DO);
                 }
 
             } catch (\Exception $e) {
@@ -63,20 +63,20 @@ class ToDoAPIController extends APIController
                 );
             }
 
-            return $comment;
+            return $todo;
 
         });
 
-        $this->m_apiResponse->setData(new ToDoResource($comment));
+        $this->m_apiResponse->setData(new ToDoResource($todo));
 
         return $this->m_apiResponse->toResponse();
     }
 
     public function apiReadItem(RequestToDoReadItem $request)
     {
-        $comment = $request->input('comment');
+        $todo = $request->input('todo');
 
-        $this->m_apiResponse->setData(new ToDoResource($comment));
+        $this->m_apiResponse->setData(new ToDoResource($todo));
 
         return $this->m_apiResponse->toResponse();
 
@@ -86,9 +86,9 @@ class ToDoAPIController extends APIController
     {
         $object = $request->input('object');
 //        dd($object);
-        $comments = $object->comments()->get();
-//        dd($comments);
-        $this->m_apiResponse->setData(ToDoResource::collection($comments));
+        $todos = $object->todos()->get();
+//        dd($todos);
+        $this->m_apiResponse->setData(ToDoResource::collection($todos));
 
         return $this->m_apiResponse->toResponse();
 

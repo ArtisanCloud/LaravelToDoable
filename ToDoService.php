@@ -36,10 +36,12 @@ class ToDoService extends ArtisanCloudService implements ToDoServiceContract
                 'name' => $arrayData['name'],
                 'content' => $arrayData['content'],
                 'type' => $arrayData['type'],
-                'is_public' => $arrayData['is_public'],
-                'commentable_id' => $arrayData['commentable_id'],
-                'commentable_type' => $arrayData['commentable_type'],
+                'status' => $arrayData['status'] ?? ToDo::STATUS_NORMAL,
+                'todoable_id' => $arrayData['todoable_id'],
+                'todoable_type' => $arrayData['todoable_type'],
                 'due_date' => $arrayData['due_date'],
+                'assigned_to_user_uuid' => $arrayData['assigned_to_user_uuid'],
+
             ]
         );
 //        dd($this->m_model);

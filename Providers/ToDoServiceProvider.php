@@ -24,6 +24,10 @@ class ToDoServiceProvider extends ServiceProvider
             ToDoServiceContract::class,
             ToDoService::class
         );
+
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/constant.php','constant'
+        );
     }
 
     /**
@@ -36,6 +40,9 @@ class ToDoServiceProvider extends ServiceProvider
 
         // config framework router
         $this->configRouter();
+
+        // load translation resource
+//        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'todoable');
 
         if ($this->app->runningInConsole()) {
               // publish config file

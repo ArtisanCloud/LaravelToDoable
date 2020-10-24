@@ -13,19 +13,25 @@ class ToDo extends ArtisanCloudModel
     const TABLE_NAME = 'todos';
     protected $table = self::TABLE_NAME;
 
+    protected $primaryKey = 'id';
+    protected $keyType = 'int';
+    public $incrementing = true;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
+        'name',
         'content',
         'type',
-        'is_public',
+        'status',
         'todoable_id',
         'todoable_type',
+        'due_date',
         'created_by',
-        'reply_toDo_id',
+        'assigned_to_user_uuid',
     ];
 
     /**
@@ -44,6 +50,7 @@ class ToDo extends ArtisanCloudModel
         self::TYPE_NORMAL,
         self::TYPE_REPLY,
     ];
+
 
     /**--------------------------------------------------------------- relation functions  -------------------------------------------------------------*/
     /**

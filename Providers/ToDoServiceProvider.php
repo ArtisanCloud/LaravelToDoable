@@ -40,8 +40,8 @@ class ToDoServiceProvider extends ServiceProvider
         $this->configRouter();
 
         // load translation resource
-        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'todoable_lang');
-        
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', TODOABLE_LANG);
+
         if ($this->app->runningInConsole()) {
               // publish config file
 //              $this->publishes([

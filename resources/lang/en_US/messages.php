@@ -11,6 +11,6 @@ declare(strict_types=1);
 return [
 
     API_ERR_CODE_FAIL_TO_CREATE_TO_DO => 'Failed to create todo',
-
+    API_ERR_CODE_TODO_NOT_EXIST => 'ToDo does not exist'
 
 ];

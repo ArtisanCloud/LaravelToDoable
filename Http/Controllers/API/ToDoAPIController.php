@@ -60,7 +60,7 @@ class ToDoAPIController extends APIController
                 throw  new BaseException(
                     intval($e->getCode()),
                     $e->getMessage(),
-                    'todoable_lang'
+                    TODOABLE_LANG
                 );
             }
 

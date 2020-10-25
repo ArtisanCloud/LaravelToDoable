@@ -28,7 +28,7 @@ class RequestToDoReadItems extends RequestBasic
      */
     public function authorize()
     {
-        $strModelsNameSpace = config('artisancloud.framework.model.namespace');
+        $strModelsNameSpace = config('artisancloud.framework.model_namespace');
         $objectClass = $strModelsNameSpace . Str::ucfirst($this->input('todoableType'));
         $object = $objectClass::where('uuid', $this->input('todoableId'))->first();
 //        dd($object);

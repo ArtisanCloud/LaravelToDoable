@@ -1,4 +1,7 @@
 <?php
 
 
+const TODOABLE_LANG = 'todoable_lang';
+
 const API_ERR_CODE_FAIL_TO_CREATE_TO_DO = 43300001;
+const API_ERR_CODE_TODO_NOT_EXIST = 43300002;

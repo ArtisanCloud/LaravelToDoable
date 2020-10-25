@@ -29,7 +29,7 @@ class RequestToDoReadItem extends RequestBasic
         $todo = ToDoService::GetBy(['id'=>$this->input('id')]);
 //        dd($todo);
         if(is_null($todo)){
-            throw new BaseException(API_ERR_CODE_COMMENT_NOT_EXIST);
+            throw new BaseException(API_ERR_CODE_TODO_NOT_EXIST,'',TODOABLE_LANG);
         }
 
         $this->getInputSource()->set('todo', $todo);

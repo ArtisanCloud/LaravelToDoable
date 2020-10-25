@@ -51,15 +51,16 @@ class ToDoAPIController extends APIController
                 // check if artisan has registered artisan
                 $todo = $this->todoService->createBy($arrayData);
 //                dd($todo);
-                if (!is_null($todo)) {
+                if (is_null($todo)) {
                     throw new \Exception('', API_ERR_CODE_FAIL_TO_CREATE_TO_DO);
                 }
 
             } catch (\Exception $e) {
 //                dd($e);
-                throw new BaseException(
+                throw  new BaseException(
                     intval($e->getCode()),
-                    $e->getMessage()
+                    $e->getMessage(),
+                    'todoable_lang'
                 );
             }
 
